@@ -5,20 +5,23 @@ using UnityEngine;
 public class ButtonInteraction : MonoBehaviour
 {
 
-    public GameObject ButtonVisual;
-    public GameObject TriggerZone;
+    public GameObject ButtonVisual, DestroyNote;
+
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKey("space"))
         {
-            ButtonVisual.GetComponent<SpriteRenderer>().color = Color.green;
+            ButtonVisual.GetComponent<SpriteRenderer>().color = Color.white;
         }
         else
         {
-            ButtonVisual.GetComponent<SpriteRenderer>().color = Color.red;
+            ButtonVisual.GetComponent<SpriteRenderer>().color = Color.gray;
         }
-
+        GameObject Flour = DestroyNote.GetComponent<TriggerActivation>().Note[0];
+        Debug.Log(Flour);
     }
+
+
 }
