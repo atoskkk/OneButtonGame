@@ -12,3 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 579dabf78a48cf64db866ace3151c62a, type: 3}
   m_Name: NoteData
   m_EditorClassIdentifier: 
+  NoteSpeed: 2
+  Misses: 0
+  Combo: 48

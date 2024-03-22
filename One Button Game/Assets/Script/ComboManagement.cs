@@ -1,0 +1,33 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ComboManagement : MonoBehaviour
+{
+    public TriggerData Data;
+    public NoteData Note;
+
+    public void Combo_feedback()
+    {
+        if ((Data.FirstTrigger == true) && (Data.SecondTrigger == true) && (Data.ThirdTrigger == true))
+        {
+            Note.Combo++;
+            Debug.Log("SICK !!!");
+            return;
+        }
+        if (((Data.FirstTrigger == true) && (Data.SecondTrigger == true) && (Data.ThirdTrigger == false)) || ((Data.ThirdTrigger == true) && (Data.SecondTrigger == true) && (Data.FirstTrigger == false)))
+        {
+            Note.Combo++;
+            Debug.Log("Okay !");
+            return;
+        }
+        if (((Data.FirstTrigger == true) && (Data.ThirdTrigger == false) && (Data.SecondTrigger == false)) || ((Data.ThirdTrigger == true)) && (Data.FirstTrigger == false) && (Data.SecondTrigger == false))
+        {
+            Note.Combo++;
+            Debug.Log("Meh...");
+            return;
+        }
+
+        return;
+    }
+}

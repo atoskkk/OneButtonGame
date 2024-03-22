@@ -6,21 +6,32 @@ public class ButtonInteraction : MonoBehaviour
 {
 
     public GameObject ButtonVisual, DestroyNote;
+    public TriggerData Data;
+    public ComboManagement Combo;
 
+
+    private void Start()
+    {
+        Combo = gameObject.GetComponent<ComboManagement>();
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey("space"))
+        GameObject Trigger = DestroyNote.GetComponent<TriggerActivation>().Note[0];
+        Debug.Log(Trigger);
+        if (Input.GetKeyDown("space"))
         {
+            Combo.Combo_feedback();
+
             ButtonVisual.GetComponent<SpriteRenderer>().color = Color.white;
+            Data.IsOccupied = true;
+            Data.FirstTrigger = false;
+            Data.SecondTrigger = false;
+            Data.ThirdTrigger = false;
+            GameObject.Destroy(Trigger);
         }
-        else
-        {
-            ButtonVisual.GetComponent<SpriteRenderer>().color = Color.gray;
-        }
-        GameObject Flour = DestroyNote.GetComponent<TriggerActivation>().Note[0];
-        Debug.Log(Flour);
+
     }
 
 

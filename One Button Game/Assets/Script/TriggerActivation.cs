@@ -8,12 +8,15 @@ public class TriggerActivation : MonoBehaviour
 {
     public TriggerData Data;
     public GameObject[] Note;
+    private Collider Trigger;
+
 
     private void Awake()
     {
         Data.FirstTrigger = false;
         Data.SecondTrigger = false;
         Data.ThirdTrigger = false;
+        Data.IsOccupied = false;
     }
 
     private void Start()
@@ -22,10 +25,22 @@ public class TriggerActivation : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        if (CompareTag("First"))
+
+        if ((CompareTag("First")) && (Data.IsOccupied == false))
         {
             Data.FirstTrigger = true;
-            Note[0] = other.gameObject;
+            if (Note[0] != null)
+            {
+                Note[0] = Trigger.gameObject;
+                Debug.Log("Executed");
+                Data.IsOccupied = true;
+            }
+            else
+            {
+                Note[0] = other.gameObject;
+                Debug.Log("Executed");
+                Data.IsOccupied = true;
+            }
         }
         if (CompareTag("Second"))
         {
@@ -35,6 +50,7 @@ public class TriggerActivation : MonoBehaviour
         {
             Data.ThirdTrigger = true;
         }
+        Trigger = other;
     }
 
     private void OnTriggerExit(Collider other)
@@ -51,11 +67,15 @@ public class TriggerActivation : MonoBehaviour
         {
             Data.ThirdTrigger = false;
         }
-        if((Data.FirstTrigger == false) && (Data.SecondTrigger == false) && (Data.ThirdTrigger == false))
+    }
+
+    private void Update()
+    {
+        if ((Data.FirstTrigger == false) && (Data.SecondTrigger == false) && (Data.ThirdTrigger == false))
         {
             Array.Clear(Note, 0, Note.Length);
+            Data.IsOccupied = false;
         }
     }
 
-    
 }

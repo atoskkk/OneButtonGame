@@ -8,4 +8,5 @@ public class TriggerData : ScriptableObject
     public bool FirstTrigger = false;
     public bool SecondTrigger = false;
     public bool ThirdTrigger = false;
+    public bool IsOccupied = false;
 }
