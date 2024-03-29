@@ -7,9 +7,11 @@ public class ButtonInteraction : MonoBehaviour
 
     public GameObject ButtonVisual, DestroyNote;
     public TriggerData Data;
-    public ComboManagement Combo;
+    public GameObject VisualFX;
+    public Animator Button;
+    public NoteData Note;
 
-
+    private ComboManagement Combo;
     private void Start()
     {
         Combo = gameObject.GetComponent<ComboManagement>();
@@ -18,20 +20,23 @@ public class ButtonInteraction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GameObject Trigger = DestroyNote.GetComponent<TriggerActivation>().Note[0];
+        GameObject Trigger = DestroyNote.GetComponent<EnterButton>().Note[0];
         Debug.Log(Trigger);
+        Note.SequenceCompleted = false;
         if (Input.GetKeyDown("space"))
         {
+            
             Combo.Combo_feedback();
+            Button.SetTrigger("Pushed");
+            Instantiate(VisualFX);
 
-            ButtonVisual.GetComponent<SpriteRenderer>().color = Color.white;
-            Data.IsOccupied = true;
+            Data.IsOccupied = false;
             Data.FirstTrigger = false;
             Data.SecondTrigger = false;
             Data.ThirdTrigger = false;
             GameObject.Destroy(Trigger);
+            Note.SequenceCompleted = true;
         }
-
     }
 
 
