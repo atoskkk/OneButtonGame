@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: NoteData
   m_EditorClassIdentifier: 
   NoteSpeed: 10
-  Misses: 0
-  Combo: 11
+  Misses: 5
+  Combo: 0
+  SequenceCompleted: 0
+  PlayerHealth: 100

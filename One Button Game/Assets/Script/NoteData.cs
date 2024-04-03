@@ -9,4 +9,5 @@ public class NoteData : ScriptableObject
     public int Misses = 0;
     public int Combo = 0;
     public bool SequenceCompleted = false;
+    public int PlayerHealth = 100;
 }

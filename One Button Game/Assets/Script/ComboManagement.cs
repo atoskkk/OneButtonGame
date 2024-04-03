@@ -9,11 +9,6 @@ public class ComboManagement : MonoBehaviour
     public TriggerData Data;
     public NoteData Note;
 
-    private void Start()
-    {
-        Note.Combo = 0;
-        Note.Misses = 0;
-    }
     public void Combo_feedback()
     {
         if ((Data.FirstTrigger == true) && (Data.SecondTrigger == true) && (Data.ThirdTrigger == true))

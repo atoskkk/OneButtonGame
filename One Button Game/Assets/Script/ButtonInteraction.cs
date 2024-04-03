@@ -14,6 +14,8 @@ public class ButtonInteraction : MonoBehaviour
     private ComboManagement Combo;
     private void Start()
     {
+        Note.Combo = 0;
+        Note.Misses = 0;
         Combo = gameObject.GetComponent<ComboManagement>();
     }
 
