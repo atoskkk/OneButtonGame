@@ -23,5 +23,9 @@ public class HUDManagement : MonoBehaviour
         {
             Text.text = Data.Misses.ToString();
         }
+        if(CompareTag("Health") == true)
+        {
+            Text.text = Data.PlayerHealth.ToString();
+        }
     }
 }

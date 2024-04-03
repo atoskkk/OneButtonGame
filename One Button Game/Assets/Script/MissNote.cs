@@ -9,6 +9,7 @@ public class MissNote : MonoBehaviour
     {
         Destroy(other.gameObject);
         Note.Misses++;
+        Note.PlayerHealth -= 10;
         Note.Combo = 0;
     }
 }

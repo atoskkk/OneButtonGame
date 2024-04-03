@@ -9,6 +9,7 @@ TagManager:
   - Third
   - Combo
   - Misses
+  - Health
   layers:
   - Default
   - TransparentFX
