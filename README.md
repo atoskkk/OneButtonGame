@@ -4,4 +4,3 @@ Mainly, our objective here is to create fun during the gameplay and a decent fee
 
 !!! IMPORTANT !!!
 THIS GAME IS ONLY PLAYED WITH THE SPACEBAR
-Use the Arrows to navigate in the menu, spacebar to continue/accept and ESC to go back.
